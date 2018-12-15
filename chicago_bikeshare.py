@@ -109,6 +109,11 @@ input("Press Enter to continue...")
 def count_gender(data_list):
     male = 0
     female = 0
+    for row in data_list:
+        if row['Gender'] == 'Male':
+            male += 1
+        elif row['Gender'] == 'Female':
+            female += 1
     return [male, female]
 
 
