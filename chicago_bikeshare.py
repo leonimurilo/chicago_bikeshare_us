@@ -253,7 +253,7 @@ input("Press Enter to continue...")
 # TASK 10
 # Gender is easy because usually only have a few options. How about start_stations? How many options does it have?
 # TODO: Check types how many start_stations do we have using set()
-user_types = set()
+user_types = set(column_to_list(data_list, 3))
 
 print("\nTASK 10: Printing start stations:")
 print(len(user_types))
