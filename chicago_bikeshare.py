@@ -42,10 +42,11 @@ input("Press Enter to continue...")
 print("\n\nTASK 1: Printing the first 20 samples")
 
 for i in range(20):
-    print('{0} row: {1}'.format(i, data_list[i]))
+    print('{0}th row: {1}'.format(i+1, data_list[i]))
 
 # Let's change the data_list to remove the header from it.
-data_list = data_list[1:]
+# Line commented since when using DictReader to read the file, the header no longer gets in
+# data_list = data_list[1:]
 
 # We can access the features through index
 # E.g. sample[6] to print gender or sample[-2]
@@ -55,6 +56,9 @@ input("Press Enter to continue...")
 # TODO: Print the `gender` of the first 20 rows
 
 print("\nTASK 2: Printing the genders of the first 20 samples")
+
+for i in range(20):
+    print('{0}th row gender: {1}'.format(i+1, data_list[i]['Gender']))
 
 
 # Cool! We can get the rows(samples) iterating with a for and the columns(features) by index.
