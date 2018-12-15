@@ -201,7 +201,7 @@ input("Press Enter to continue...")
 male, female = count_gender(data_list)
 print("\nTASK 8: Why the following condition is False?")
 print("male + female == len(data_list):", male + female == len(data_list))
-answer = "Type your answer here."
+answer = "Because some items in the sample don't have the gender specified (probably because this information was no colleted for that user)"
 print("Answer:", answer)
 
 # ------------ DO NOT CHANGE ANY CODE HERE ------------
