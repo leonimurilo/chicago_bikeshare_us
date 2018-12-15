@@ -9,8 +9,19 @@ import matplotlib.pyplot as plt
 print("Reading the document...")
 with open("chicago.csv", "r") as file_read:
     reader = csv.reader(file_read)
-    data_list = list(reader)
+
+    # Create an object that operates like a regular reader
+    # but maps the information in each row to an OrderedDict with the alias "row"
+    # Then the items() method is called on "row" to get a tuple containing the key and the value
+    # where the key is the name of the field (available on the file header)
+    # and the value is the data within the row for that specific column
+    # Lastly, for every key-value pair on the "row" object,
+    # a key-value pair is created on the dictionary using the for loop
+    # The final dictionary will have all the fields and there will be a dict for every row of the file
+    data_list = [{k: v for k, v in row.items()} for row in csv.DictReader(file_read, skipinitialspace=True)]
+
 print("Ok!")
+
 
 # Let's check how many rows do we have
 print("Number of rows:")
@@ -29,6 +40,9 @@ input("Press Enter to continue...")
 # TASK 1
 # TODO: Print the first 20 rows using a loop to identify the data.
 print("\n\nTASK 1: Printing the first 20 samples")
+
+for i in range(20):
+    print('{0} row: {1}'.format(i, data_list[i]))
 
 # Let's change the data_list to remove the header from it.
 data_list = data_list[1:]
@@ -190,15 +204,15 @@ input("Press Enter to continue...")
 # TASK 11
 # Go back and make sure you documented your functions. Explain the input, output and what it do. Example:
 # def new_function(param1: int, param2: str) -> list:
-      """
-      Example function with annotations.
-      Args:
-          param1: The first parameter.
-          param2: The second parameter.
-      Returns:
-          List of X values
+"""
+Example function with annotations.
+Args:
+    param1: The first parameter.
+    param2: The second parameter.
+Returns:
+    List of X values
 
-      """
+"""
 
 input("Press Enter to continue...")
 # TASK 12 - Challenge! (Optional)
