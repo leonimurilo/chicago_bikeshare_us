@@ -86,6 +86,11 @@ input("Press Enter to continue...")
 # TODO: Count each gender. You should not use a function to do that.
 male = 0
 female = 0
+for row in data_list:
+    if row['Gender'] == 'Male':
+        male += 1
+    elif row['Gender'] == 'Female':
+        female += 1
 
 
 # Checking the result
