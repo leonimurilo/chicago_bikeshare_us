@@ -315,13 +315,29 @@ input("Press Enter to continue...")
 # TODO: Create a function to count user types without hardcoding the types
 # so we can use this function with a different kind of data.
 print("Will you face it?")
-answer = "no"
+answer = "yes"
+
+# Are the instructions correct? They talk about the "user types" as if they were the gender.
+# The asserts use gender.
+
 
 def count_items(column_list):
     item_types = []
     count_items = []
-    return item_types, count_items
+    temp_list = column_list.copy()
+    unique_set = set(temp_list)
+    print("unique set: " + str(unique_set))
 
+    for i, gender in enumerate(unique_set):
+        count = 0
+        for item in temp_list:
+            if item == gender:
+                count += 1
+
+        count_items.append(count)
+
+    item_types = list(unique_set)
+    return item_types, count_items
 
 if answer == "yes":
     # ------------ DO NOT CHANGE ANY CODE HERE ------------
