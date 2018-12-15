@@ -13,6 +13,7 @@ with open("chicago.csv", "r") as file_read:
 
     # Use every row as an OrderedDict
     # Their properties can be accessed via name
+    # and since they are ordered, their properties can be accessed using indexes when converted to lists
     data_list = [row for row in csv.DictReader(file_read, skipinitialspace=True)]
 
 print("Ok!")
@@ -62,6 +63,15 @@ for i in range(20):
 input("Press Enter to continue...")
 # TASK 3
 # TODO: Create a function to add the columns(features) of a list in another list in the same order
+"""
+Given a list of OrderedDict and the index of a column/feature, returns a list of values related to that column (one item for every row)
+Args:
+    param1: The list of OrderedDict objects that represents the dataset (where every OrderedDict represents a row)
+    param2: The index of the column/feature to be selected (as if you were slicing a list)
+Returns:
+    List of values for the index specified column
+
+"""
 def column_to_list(data, index):
     column_list = []
     for row in data:
@@ -107,6 +117,14 @@ input("Press Enter to continue...")
 # TASK 5
 # TODO: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
+"""
+Given a list of OrderedDict and the index of a column/feature, returns a list containing how many males and females resides on the dataset
+Args:
+    param1: The list of OrderedDict objects that represents the dataset (where every OrderedDict represents a row)
+Returns:
+    The list where the first item (position 0) is the number of males and the second item (position 1) the number of females
+
+"""
 def count_gender(data_list):
     male = 0
     female = 0
@@ -132,6 +150,14 @@ input("Press Enter to continue...")
 # TASK 6
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
+"""
+Given a list of OrderedDict and the index of a column/feature, returns a string that tells the most popular gender
+Args:
+    param1: The list of OrderedDict objects that represents the dataset (where every OrderedDict represents a row)
+Returns:
+    A string that says which gender is the most popular. Possible answers: "Male", "Female" or "Equal".
+
+"""
 def most_popular_gender(data_list):
     count = count_gender(data_list)
     male = count[0]
@@ -171,7 +197,14 @@ plt.show(block=True)
 input("Press Enter to continue...")
 # TASK 7
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
+"""
+Given a list of OrderedDict and the index of a column/feature, returns a list containing the amount of subscribers and customers
+Args:
+    param1: The list of OrderedDict objects that represents the dataset (where every OrderedDict represents a row)
+Returns:
+    The list where the first item (position 0) is the number of subscribers and the second item (position 1) the number of customers
 
+"""
 def count_user_type(data_list):
     subscriber = 0
     customer = 0
