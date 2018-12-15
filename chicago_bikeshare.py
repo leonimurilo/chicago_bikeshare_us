@@ -132,7 +132,18 @@ input("Press Enter to continue...")
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
+    count = count_gender(data_list)
+    male = count[0]
+    female = count[1]
     answer = ""
+
+    if male > female:
+        answer = "Male"
+    elif female > male:
+        answer = "Female"
+    else:
+        answer = "Equal"
+    
     return answer
 
 
