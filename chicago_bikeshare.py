@@ -170,6 +170,28 @@ plt.show(block=True)
 input("Press Enter to continue...")
 # TASK 7
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
+
+def count_user_type(data_list):
+    subscriber = 0
+    customer = 0
+    for row in data_list:
+        if row['User Type'] == 'Subscriber':
+            subscriber += 1
+        elif row['User Type'] == 'Customer':
+            customer += 1
+    return [subscriber, customer]
+
+user_type_list = column_to_list(data_list, -3)
+types = ["Subscriber", "Customer"]
+quantity = count_user_type(data_list)
+y_pos = list(range(len(types)))
+plt.bar(y_pos, quantity)
+plt.xlabel('User type')
+plt.ylabel('Quantity')
+plt.xticks(y_pos, types)
+plt.title('Quantity by type of user')
+plt.show(block=True)
+
 print("\nTASK 7: Check the chart!")
 
 
